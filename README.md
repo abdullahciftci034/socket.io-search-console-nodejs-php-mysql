@@ -50,3 +50,6 @@ And repeat
 ```
 docker-compose up
 ```
+open browser
+
+<a href="http://localhost">http://localhost</a>
