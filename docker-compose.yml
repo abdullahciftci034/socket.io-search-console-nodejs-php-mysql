@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  php_apache_server:
+    build : ./php_app
+    volumes:
+      - ./php_app/app:/var/www/html 
+      - ./php_app/conf/apache2.conf:/etc/apache2/apache2.conf
+    ports:
+      - 80:80
+    networks:
+      - my_network
+    depends_on:
+      - mysql_app
+      - node_app
+  mysql_app:
+    build: ./mysql_app
+    environment:
+      MYSQL_ROOT_PASSWORD: abdullah123  # MySQL kök kullanıcısının şifresi
+      MYSQL_DATABASE: search_app  # Uygulamanın kullanacağı veritabanı adı
+      MYSQL_USER: abdullah  # Uygulama için veritabanı kullanıcısı adı
+      MYSQL_PASSWORD: abdullah123  # Uygulama veritabanı kullanıcısının şifresi
+    volumes:
+      - ./mysql_app/data:/var/lib/mysql  # MySQL veritabanı dosyalarının host ile konteyner arasında paylaşılacağı dizin
+    networks:
+      - my_network
+    ports:
+      - 3306:3306
+  node_app:
+      build: ./node_app
+      volumes:
+        - ./node_app/app:/usr/src/app
+      ports:
+        - 3000:3000 
+      networks:
+        - my_network  
+networks:
+  my_network:  # Uygulama konteynerleri arasında bir ağ oluşturur
+    driver: bridge
