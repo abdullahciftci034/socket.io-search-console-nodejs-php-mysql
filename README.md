@@ -15,11 +15,28 @@
 
 ---
 
-<p align="center"> Live search on mysql db 
-    <br> 
-</p>
 
-## 📝 Table of Contents
+## 🏁 Başlangıç <a name = "getting_started"></a>
+### Kurulum için gerekenler
+- <a href="https://www.docker.com/products/docker-desktop/">Docker</a>
+
+### Kurulum
+
+```
+git clone https://github.com/abdullahciftci034/socket.io-search-console-nodejs-php-mysql.git
+```
+```
+cd socket.io-search-console-nodejs-php-mysql
+```
+```
+docker-compose build
+```
+```
+docker-compose up
+```
+Browserdan açın:
+<a href="http://localhost">http://localhost</a>
+### 📝 İçerik
 
 - [Socket.io](#socket-io)
 - [Nodejs](#nodejs)
@@ -27,29 +44,7 @@
 - [Mysql](#mysql)
 - [search console](#search-console)
 - [docker](#docker)
-## 🧐 About <a name = "about"></a>
 
-Basic search console 
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-You should install docker
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-git clone https://github.com/abdullahciftci034/socket.io-search-console-nodejs-php-mysql.git
-```
-
-And repeat
-
-```
-docker-compose up
-```
-open browser
-
-<a href="http://localhost">http://localhost</a>
+### Preview
+<img src="images/1.png">
+<img src="images/2.png">

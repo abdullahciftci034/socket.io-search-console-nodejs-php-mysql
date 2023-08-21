@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   php_apache_server:
     build : ./php_app
@@ -10,9 +9,6 @@ services:
       - 80:80
     networks:
       - my_network
-    depends_on:
-      - mysql_app
-      - node_app
   mysql_app:
     build: ./mysql_app
     environment:
@@ -30,6 +26,7 @@ services:
       build: ./node_app
       volumes:
         - ./node_app/app:/usr/src/app
+        - /log:/root/.npm/_logs/
       ports:
         - 3000:3000 
       networks:
